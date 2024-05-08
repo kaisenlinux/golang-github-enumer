@@ -1,0 +1,20 @@
+#!/usr/bin/make -f
+
+export GOPATH=$(CURDIR)/_build
+
+%:
+	dh $@ --buildsystem=golang --builddirectory=_build
+
+override_dh_auto_clean:
+	rm -rf $(CURDIR)/_build $(CURDIR)/cli
+
+override_dh_auto_build:
+	make build-cli
+	
+override_dh_auto_test:
+	go test
+
+override_dh_auto_install:
+	install -p -m 0755 $(CURDIR)/cli/build/enumer $(CURDIR)/debian/golang-github-enumer/usr/bin
+
+override_dh_dwz:

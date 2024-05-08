@@ -1,0 +1,5 @@
+golang-github-enumer (1.5.9-1kaisen) kaisen-packages; urgency=medium
+
+  * First packaging for Kaisen Linux
+
+ -- Kevin Chevreuil - Kaisen <kaisen@kaisenlinux.org>  Wed, 08 May 2024 16:33:43 +0200

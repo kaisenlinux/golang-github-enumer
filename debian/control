@@ -1,0 +1,18 @@
+Source: golang-github-enumer
+Section: utils
+Priority: optional
+Maintainer: Kevin Chevreuil - Kaisen <kaisen@kaisenlinux.org>
+Build-Depends: debhelper-compat (= 13),
+	       dh-golang,
+	       golang-go (>= 1.21),
+Standards-Version: 4.7.0
+Homepage: https://github.com/dmarkham/enumer
+Vcs-Browser: https://gitlab.com/kaisenlinux/packages/enumer
+Vcs-Git: https://gitlab.com/kaisenlinux/packages/enumer.git
+Rules-Requires-Root: no
+XS-Go-Import-Path: github.com/dmarkham/enumer
+
+Package: golang-github-enumer
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: A Go tool to auto generate methods for your enums

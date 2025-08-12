@@ -1,5 +1,4 @@
-# Enumer [![GoDoc](https://godoc.org/github.com/dmarkham/enumer?status.svg)](https://godoc.org/github.com/dmarkham/enumer) [![Go Report Card](https://goreportcard.com/badge/github.com/dmarkham/enumer)](https://goreportcard.com/report/github.com/dmarkham/enumer) [![GitHub Release](https://img.shields.io/github/release/dmarkham/enumer.svg)](https://github.com/dmarkham/enumer/releases)[![Build Status](https://travis-ci.com/dmarkham/enumer.svg?branch=master)](https://travis-ci.com/dmarkham/enumer)
-
+# Enumer [![GoDoc](https://godoc.org/github.com/dmarkham/enumer?status.svg)](https://godoc.org/github.com/dmarkham/enumer) [![Go Report Card](https://goreportcard.com/badge/github.com/dmarkham/enumer)](https://goreportcard.com/report/github.com/dmarkham/enumer) [![GitHub Release](https://img.shields.io/github/release/dmarkham/enumer.svg)](https://github.com/dmarkham/enumer/releases)
 
 Enumer is a tool to generate Go code that adds useful methods to Go enums (constants with a specific type).
 It started as a fork of [Rob Pike’s Stringer tool](https://godoc.org/golang.org/x/tools/cmd/stringer)
@@ -8,9 +7,9 @@ This was again forked here as (https://github.com/dmarkham/enumer) picking up wh
 
 
 ```
-$ ./enumer --help
+$ enumer --help
 Enumer is a tool to generate Go code that adds useful methods to Go enums (constants with a specific type).
-Usage of ./enumer:
+Usage of enumer:
         Enumer [flags] -type T [directory]
         Enumer [flags] -type T files... # Must be a single package
 For more information, see:
@@ -35,11 +34,11 @@ Flags:
   -transform string
         enum item name transformation method. Default: noop (default "noop")
   -trimprefix string
-        transform each item name by removing a prefix. Default: ""
+        transform each item name by removing a prefix or comma separated list of prefixes. Default: ""
   -type string
         comma-separated list of type names; must be set
   -values
-    	if true, alternative string values method will be generated. Default: false
+        if true, alternative string values method will be generated. Default: false
   -yaml
         if true, yaml marshaling methods will be generated. Default: false
 ```
@@ -209,7 +208,8 @@ Possible transform values are listed above in the [transformers](#transformers) 
 The default value for `transform` flag is `noop` which means no transformation will be performed.
 
 If a prefix is provided via the `trimprefix` flag, it will be trimmed from the start of each name (before
-it is transformed). If a name doesn't have the prefix it will be passed unchanged.
+it is transformed). You can trim multiple prefixes by passing a comma separated list.
+If a name doesn't have the prefix it will be passed unchanged.
 
 If a prefix is provided via the `addprefix` flag, it will be added to the start of each name (after trimming and after transforming).
 
